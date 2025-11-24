@@ -23,18 +23,15 @@ function generatePassword() {
     if (lowerCheck.checked) allowedChars += lowercase;
     if (upperCheck.checked) allowedChars += uppercase;
     if (numberCheck.checked) allowedChars += numbers;
-    if (symbolCheck.checked) allowedChars += symbols;
-    if (!allowedChars) return "";
-
+    if (symbolCheck.checked) allowedChars += symbol;
 
     if (allowedChars === "") {
         alert("Please select at least one option!");
         return;
     }
 
-    for (let i = 0; i <= length; i++) {
-        Math.random() * allowedChars.length
-        password += allowedChars[randomIndex];
+    for (let i = 0; i < length; i++) {
+        password += allowedChars[Math.round(Math.random() * allowedChars.length)];
     }
 
     passwordField.value = password;
